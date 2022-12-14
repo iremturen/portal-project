@@ -1,0 +1,85 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- **************************** Dao Declaration *************************** -->
+
+	<bean id="genericHibernateDao"
+		class="com.izibiz.training.dao.common.GenericDaoHibernateImpl"
+		abstract="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="userDao" class="com.izibiz.training.dao.UserDaoImpl"
+		parent="genericHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="despatchDao"
+		class="com.izibiz.training.dao.DespatchDaoImpl"
+		parent="genericHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="accountDao"
+		class="com.izibiz.training.dao.AccountDaoImpl"
+		parent="genericHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="invoiceDao"
+		class="com.izibiz.training.dao.InvoiceDaoImpl"
+		parent="genericHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="reconciliationDao"
+		class="com.izibiz.training.dao.ReconciliationDaoImpl"
+		parent="genericHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="archiveDao"
+		class="com.izibiz.training.dao.ArchiveDaoImpl"
+		parent="genericHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="stockDao" class="com.izibiz.training.dao.StockDaoImp"
+		parent="genericHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="usersDao" class="com.izibiz.training.dao.UsersDaoImpl"
+		parent="genericHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	
+	<bean id="restTemplate"
+		class="org.springframework.web.client.RestTemplate">
+	</bean>
+	
+
+	
+	
+	<!-- **************************** Service Declaration *************************** -->
+
+	<bean id="userService"
+		class="com.izibiz.training.service.UserServiceImpl" />
+	<bean id="despatchService"
+		class="com.izibiz.training.service.DespatchServiceImpl" />
+	<bean id="accountService"
+		class="com.izibiz.training.service.AccountServiceImpl" />
+	<bean id="invoiceService"
+		class="com.izibiz.training.service.InvoiceServiceImpl" />
+	<bean id="reconciliationService"
+		class="com.izibiz.training.service.ReconciliationServiceImpl" />
+	<bean id="archiveService"
+		class="com.izibiz.training.service.ArchiveServiceImpl" />
+	<bean id="stockService"
+		class="com.izibiz.training.service.StockServiceImp" />
+	<bean id="usersService"
+		class="com.izibiz.training.service.UsersServiceImp" />
+	<bean id="customUserDetailsService"
+		class="com.izibiz.training.bean.security.CustomUserDetailsService" />
+
+	<!-- **************************** Util Declaration *************************** -->
+</beans>

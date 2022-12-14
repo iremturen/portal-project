@@ -1,0 +1,156 @@
+<pretty-config
+	xmlns="http://ocpsoft.com/prettyfaces/3.3.2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://ocpsoft.com/xml/ns/prettyfaces/ocpsoft-pretty-faces-3.3.2.xsd">
+
+	<url-mapping id="darft-invoice">
+		<pattern value="/darft-invoice" />
+		<view-id value="/pages/einvoice/draft-invoice.xhtml" />
+	</url-mapping>
+
+
+	<url-mapping id="invoice-inbox">
+		<pattern value="/invoice-inbox" />
+		<view-id value="/pages/einvoice/invoice-inbox.xhtml" />
+	</url-mapping>
+
+	<url-mapping id="invoice-outbox">
+		<pattern value="/invoice-outbox" />
+		<view-id value="/pages/einvoice/invoice-outbox.xhtml" />
+	</url-mapping>
+
+
+	<url-mapping id="earsiv-faturalar">
+		<pattern value="/earsiv/faturalar" />
+		<view-id value="/pages/earchive/archive.xhtml" />
+	</url-mapping>
+
+	<url-mapping id="earsiv-raporlar">
+		<pattern value="/earsiv/raporlar" />
+		<view-id value="/pages/earchive/archive.xhtml" />
+	</url-mapping>
+
+	<url-mapping id="earsiv-taslaklar">
+		<pattern value="/earsiv/taslaklar" />
+		<view-id value="/pages/earchive/archive.xhtml" />
+	</url-mapping>
+
+	<url-mapping id="earsiv-olustur">
+		<pattern value="/earsiv/olustur" />
+		<view-id value="/pages/earchive/create-earchive.xhtml" />
+	</url-mapping>
+
+
+	<url-mapping id="draft-despatch">
+		<pattern value="/draft-despatch" />
+		<view-id value="/pages/edespatch/draft-despatch.xhtml" />
+	</url-mapping>
+	<url-mapping id="despatch-inbox">
+		<pattern value="/despatch-inbox" />
+		<view-id value="/pages/edespatch/despatch-inbox.xhtml" />
+	</url-mapping>
+	<url-mapping id="despatch-outbox">
+		<pattern value="/despatch-outbox" />
+		<view-id value="/pages/edespatch/despatch-outbox.xhtml" />
+	</url-mapping>
+
+
+	<url-mapping id="e-reconciliation">
+		<pattern value="/e-reconciliation" />
+		<view-id
+			value="/pages/ereconciliation/draft-reconciliation.xhtml" />
+	</url-mapping>
+
+	<url-mapping id="e-reconciliation-formation">
+		<pattern value="/e-reconciliation-formation" />
+		<view-id
+			value="/pages/ereconciliation/sent-invoice-reconciliation.xhtml" />
+	</url-mapping>
+
+	<url-mapping id="e-reconciliation-report">
+		<pattern value="/e-reconciliation-report" />
+		<view-id
+			value="/pages/ereconciliation/report-reconciliation.xhtml" />
+	</url-mapping>
+
+
+	<url-mapping id="create-new-user">
+		<pattern value="/create-new-user" />
+		<view-id value="/pages/user/create-new-user.xhtml" />
+	</url-mapping>
+
+	<url-mapping id="new-customer">
+		<pattern value="/new-customer" />
+		<view-id
+			value="/pages/customer/create-new-customer-client.xhtml" />
+	</url-mapping>
+	<url-mapping id="edit-customer">
+		<pattern value="/edit-customer" />
+		<view-id value="/pages/customer/edit-customer-client.xhtml" />
+	</url-mapping>
+	<url-mapping id="customer-client-list">
+		<pattern value="/customer-client-list" />
+		<view-id value="/pages/customer/customer-client-list.xhtml" />
+	</url-mapping>
+	<url-mapping id="user-account">
+		<pattern value="/user-account" />
+		<view-id value="/pages/user/user-account-relation.xhtml" />
+	</url-mapping>
+
+	<url-mapping id="stock-list">
+		<pattern value="/stock-list" />
+		<view-id value="/pages/stocks/stock-list.xhtml" />
+	</url-mapping>
+
+	<url-mapping id="new-stock">
+		<pattern value="/new-stock" />
+		<view-id value="/pages/stocks/new-stock.xhtml" />
+	</url-mapping>
+
+	<url-mapping id="edit-stock">
+		<pattern value="/edit-stock" />
+		<view-id value="/pages/stocks/edit-stock.xhtml" />
+	</url-mapping>
+
+	<url-mapping id="new-stock-rest">
+		<pattern value="/new-stock-rest" />
+		<view-id value="/pages/stocks/new-stock-rest.xhtml" />
+	</url-mapping>
+
+	<url-mapping id="edit-stock-rest">
+		<pattern value="/stock-list-rest" />
+		<view-id value="/pages/stocks/stock-list-rest.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="index">
+		<pattern value="/index" />
+		<view-id value="/pages/index.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="login2">
+		<pattern value="/login2" />
+		<view-id value="/login2.xhtml" />
+	</url-mapping>
+
+	<!-- gamze archive -->
+
+	<url-mapping id="earsiv-faturalar">
+		<pattern value="/earsiv/faturalarG" />
+		<view-id value="/pages/earchiveGamze/earchiveG-outbox.xhtml" />
+	</url-mapping>
+
+	<url-mapping id="earsiv-taslaklar">
+		<pattern value="/earsiv/taslaklarG" />
+		<view-id value="/pages/earchiveGamze/earchiveG-draft.xhtml" />
+	</url-mapping>
+
+	<url-mapping id="earsiv-olustur">
+		<pattern value="/earsiv/olusturG" />
+		<view-id value="/pages/earchiveGamze/earchiveG-new.xhtml" />
+	</url-mapping>
+
+
+
+
+
+</pretty-config>

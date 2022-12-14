@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/layout/template-with-menu.xhtml">
+
+	<ui:define name="body">
+
+		<h:form prependId="false">
+		#{stockBean.loadPage()}
+			
+   <h2>Inverntory List</h2>
+
+			<!--table-->
+
+			<p:outputPanel id="stocksDataTablePanel">
+
+				<p:commandButton id="editStockButton" value="Edit"
+					styleClass="ui-button-danger"
+					disabled="#{!stockBean.hasSelectedStock()}" update="@this"
+					action="/pages/stocks/edit-stock.xhtml?faces-redirect=true">
+					<f:setPropertyActionListener
+						target="#{editStockBean.selectedStockDto}"
+						value="#{stockBean.selectedStockDto}" />
+				</p:commandButton>
+
+				<p:commandButton value="Delete" id="deleteStock"
+					update="stocksDataTablePanel" action="#{stockBean.deleteStock}">
+				</p:commandButton>
+
+				<p:commandButton id="editStockRestButton" value="Edit w/Rest"
+					styleClass="ui-button-danger" update="@this"
+					action="/pages/stocks/edit-stock-rest.xhtml?faces-redirect=true">
+					<f:setPropertyActionListener
+						target="#{editStockBean.selectedStockDto}"
+						value="#{stockBean.selectedStockDto}" />
+
+				</p:commandButton>
+
+
+				<p:dataTable id="dtbStock" var="stock"
+					value="#{stockBean.stockDtoLazyModel}" rowKey="#{stock.id}"
+					rows="10" paginatorPosition="both"
+					selection="#{stockBean.selectedStockDto}" lazy="true"
+					paginator="true" selectionMode="single"
+					currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+					rowsPerPageTemplate="5,10,25,50" emptyMessage="Data not found"
+					tableStyle="table-layout:auto" sortBy="#{stock.id}"
+					sortOrder="ascending"
+					filteredValue="#{stockBean.filteredStockList}"
+					paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}">
+
+					<p:ajax event="rowSelect" update="editStockButton" />
+					<p:ajax event="rowUnselect" update="editStockButton" />
+
+
+					<p:column headerText="Id" filterBy="#{stock.id}"
+						sortBy="#{stock.id}" filterMatchMode="contains">
+						<h:outputText value="#{stock.id}" style="vertical-align: center"></h:outputText>
+					</p:column>
+
+					<p:column headerText="Uuid" filterBy="#{stock.uuid}"
+						sortBy="#{stock.uuid}" filterMatchMode="contains">
+						<h:outputText value="#{stock.uuid}" style="vertical-align: center"></h:outputText>
+					</p:column>
+
+					<p:column headerText="Inventory Id" filterBy="#{stock.inventoryId}"
+						sortBy="#{stock.inventoryId}" filterMatchMode="contains">
+						<h:outputText value="#{stock.inventoryId}"
+							style="vertical-align: center"></h:outputText>
+					</p:column>
+
+					<p:column headerText="Name" filterBy="#{stock.name}"
+						sortBy="#{stock.name}" filterMatchMode="contains">
+						<h:outputText value="#{stock.name}" style="vertical-align: center"></h:outputText>
+					</p:column>
+
+					<p:column headerText="Email" filterBy="#{stock.email}"
+						sortBy="#{stock.email}" filterMatchMode="contains">
+						<h:outputText value="#{stock.email}"
+							style="vertical-align: center"></h:outputText>
+					</p:column>
+
+					<p:column headerText="Brand" filterBy="#{stock.brand}"
+						sortBy="#{stock.brand}" filterMatchMode="contains">
+						<h:outputText value="#{stock.brand}"
+							style="vertical-align: center"></h:outputText>
+					</p:column>
+
+					<p:column headerText="Unit Price" filterBy="#{stock.unitPrice}"
+						sortBy="#{stock.unitPrice}" filterMatchMode="contains">
+						<h:outputText value="#{stock.unitPrice}"
+							style="vertical-align: center"></h:outputText>
+					</p:column>
+
+					<p:column headerText="Quantity" filterBy="#{stock.quantity}"
+						sortBy="#{stock.quantity}" filterMatchMode="contains">
+						<h:outputText value="#{stock.quantity}"
+							style="vertical-align: center"></h:outputText>
+					</p:column>
+
+
+
+
+				</p:dataTable>
+
+			</p:outputPanel>
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>

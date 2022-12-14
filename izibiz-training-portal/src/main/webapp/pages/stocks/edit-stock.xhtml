@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/layout/template-with-menu.xhtml">
+
+	<ui:define name="body">
+		<h:form prependId="false">
+		#{editStockBean.openPage()}
+		
+		<p:messages>
+				<p:autoUpdate />
+			</p:messages>
+
+			<h3>Stok Düzenleme</h3>
+
+			<p:outputPanel id="editStockPanel">
+				<h:panelGrid>
+
+					<p:outputLabel value="Uuid" />
+					<p:inputText disabled="true"
+						value="#{editStockBean.selectedStockDto.uuid}">
+					</p:inputText>
+
+					<p:outputLabel value="Id" />
+					<p:inputText disabled="true"
+						value="#{editStockBean.selectedStockDto.id}">
+					</p:inputText>
+
+
+					<p:outputLabel value="Inventory Id" id="lblInvId" />
+					<p:inputText value="#{editStockBean.selectedStockDto.inventoryId}"
+						required="true" id="txtInvId" autocomplete="off"
+						onkeyup="this.value = this.value.toUpperCase()"
+						requiredMessage="Inventory Id boş geçilemez">
+						<p:ajax global="false" process="@this" event="blur"
+							update="txtInvId lblInvId"></p:ajax>
+					</p:inputText>
+
+
+					<p:outputLabel value="Name" id="lblName" />
+					<p:inputText value="#{editStockBean.selectedStockDto.name}"
+						required="true" id="txtName" autocomplete="off"
+						onkeyup="this.value = this.value.toUpperCase()"
+						requiredMessage="Name boş geçilemez">
+						<p:ajax global="false" process="@this" event="blur"
+							update="txtName lblName"></p:ajax>
+					</p:inputText>
+
+
+					<p:outputLabel value="Email" id="lblEmail" />
+					<p:inputText value="#{editStockBean.selectedStockDto.email}"
+						required="true" id="txtEmail" autocomplete="off"
+						onkeyup="this.value = this.value.toUpperCase()"
+						requiredMessage="E-mail boş geçilemez">
+						<p:ajax global="false" process="@this" event="blur"
+							update="txtEmail lblEmail"></p:ajax>
+						<f:validateRegex
+							pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+					</p:inputText>
+
+
+					<p:outputLabel value="Brand" id="lblBrand" />
+					<p:inputText value="#{editStockBean.selectedStockDto.brand}"
+						required="true" id="txtBrand" autocomplete="off"
+						onkeyup="this.value = this.value.toUpperCase()"
+						requiredMessage="Brand boş geçilemez">
+						<p:ajax global="false" process="@this"></p:ajax>
+					</p:inputText>
+
+					<p:outputLabel value="Unit Price" id="lblPrice" />
+					<p:inputNumber value="#{editStockBean.selectedStockDto.unitPrice}"
+						required="true" id="txtPrice" autocomplete="off"
+						requiredMessage="Unit Price boş geçilemez">
+						<p:ajax global="false" process="@this" event="blur"
+							update="txtPrice lblPrice"></p:ajax>
+					</p:inputNumber>
+
+
+					<p:outputLabel value="Quantity" id="lblQuantity" />
+					<p:inputText value="#{editStockBean.selectedStockDto.quantity}"
+						required="true" id="txtQuantity" autocomplete="off" minValue="0"
+						decimalPlaces="0" requiredMessage="Quantity boş geçilemez">
+						<p:ajax global="false" process="@this" event="blur"
+							update="txtQuantity lblQuantity"></p:ajax>
+					</p:inputText>
+
+					<div>
+						<p:commandButton value="Edit" action="#{editStockBean.editStock}"
+							update="editStockPanel" />
+						<p:commandButton value="Previous Page"
+							action="/pages/stocks/stock-list.xhtml?faces-redirect=true" />
+					</div>
+				</h:panelGrid>
+			</p:outputPanel>
+
+
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>
