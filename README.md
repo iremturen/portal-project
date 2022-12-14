@@ -1,0 +1,1 @@
+The portal project was developed by adding stock management sections to the intern project during my internship at Izibiz Information Technologies company. This web project was developed using Hibernate, Spring Framework, JSF and PrimeFaces. Tested on Tomcat 8.
